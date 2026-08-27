@@ -189,6 +189,7 @@ test.describe('sidebar states — cross-session dot transition', () => {
     restartMockServer()
     fixture = await setupMockBackend({
       mockServer: { backgroundReleasePath: bgRelease.path },
+      extraConfig: 'approvals:\n  mode: off',
     })
     await waitForAppReady(fixture, 120_000)
   })

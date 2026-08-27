@@ -112,6 +112,7 @@ test.describe('sidebar states — tab (hidden) unread is correct', () => {
     restartMockServer()
     fixture = await setupMockBackend({
       mockServer: { backgroundReleasePath: bgRelease.path },
+      extraConfig: 'approvals:\n  mode: off',
     })
     await waitForAppReady(fixture, 120_000)
   })
@@ -173,6 +174,7 @@ test.describe.skip('sidebar states — split (visible) unread bug (RED)', () => 
     restartMockServer()
     fixture = await setupMockBackend({
       mockServer: { backgroundReleasePath: bgRelease.path },
+      extraConfig: 'approvals:\n  mode: off',
     })
     await waitForAppReady(fixture, 120_000)
   })
