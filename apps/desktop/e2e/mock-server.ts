@@ -207,13 +207,7 @@ function sidebarCrossBgCommand(releasePath?: string): string {
   return [
     'echo "long bg output"',
     'i=0',
-    [
-      'while [ "$i" -lt 600 ]; do',
-      `[ -e ${quoted} ] && break`,
-      'sleep 0.1',
-      'i=$((i + 1))',
-      'done',
-    ].join('; '),
+    `while [ "$i" -lt 600 ]; do [ -e ${quoted} ] && break; sleep 0.1; i=$((i + 1)); done`,
     'echo "finished"',
   ].join(' && ')
 }
