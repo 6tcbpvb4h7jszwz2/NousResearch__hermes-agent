@@ -206,7 +206,14 @@ function sidebarCrossBgCommand(releasePath?: string): string {
   const quoted = JSON.stringify(releasePath)
   return [
     'echo "long bg output"',
-    `for _ in $(seq 1 600); do [ -e ${quoted} ] && break; sleep 0.1; done`,
+    'i=0',
+    [
+      'while [ "$i" -lt 600 ]; do',
+      `[ -e ${quoted} ] && break`,
+      'sleep 0.1',
+      'i=$((i + 1))',
+      'done',
+    ].join('; '),
     'echo "finished"',
   ].join(' && ')
 }
