@@ -110,6 +110,7 @@ jobs:
           fi
         env:
           CI: "true"
+          HERMES_YOLO_MODE: "1"
           # Ensure no real API keys leak into the test env.
           OPENROUTER_API_KEY: ""
           OPENAI_API_KEY: ""
